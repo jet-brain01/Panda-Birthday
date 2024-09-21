@@ -31,7 +31,7 @@ body {
     height: auto;
     position: absolute;
     top: 15%; /* Adjust to move images up */
-    left: 50%; /* Center horizontally */
+    left: 52%; /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
 }
 

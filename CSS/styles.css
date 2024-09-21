@@ -1,0 +1,224 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure the body and html elements cover the full height */
+}
+
+body {
+    background-image: url('../Items/main_bg.png');
+    background-size: cover; /* Ensure the background covers the entire viewport */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Hide scrollbars */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh; /* Full viewport height */
+    position: relative; /* Make the container relative to position child elements absolutely */
+    padding-left: 20px;
+}
+
+/* Heading */
+.heading {
+    font-family: 'Great Vibes', cursive; /* Original font */
+    font-size: 95px;
+    color: #FF3366; /* Pink color for text */
+    margin: 130px 0 20px 130px; 
+    text-align: left;
+    width: 100%;
+    padding-left: 20px;
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.5), /* Subtle shadow */
+        0 0 10px rgba(255, 51, 102, 0.8), /* Soft pink glow */
+        0 0 20px rgba(255, 51, 102, 0.6); /* Additional glow */
+    position: relative; /* Required for pseudo-elements */
+}
+/* Floating Effect */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+/* Glow Effect */
+@keyframes glow {
+    0% { text-shadow: 0 0 10px rgba(255, 51, 102, 0.8); }
+    50% { text-shadow: 0 0 20px rgba(255, 51, 102, 0.6); }
+    100% { text-shadow: 0 0 10px rgba(255, 51, 102, 0.8); }
+}
+
+/* Apply animations to heading */
+.heading {
+    animation: float 5s ease-in-out infinite, glow 1.5s ease-in-out infinite;
+}
+
+.lightbulbs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    padding-left: 290px; /* Increase padding to move light bulbs more to the right */
+}
+.lightbulb {
+    width: 45px; /* Reduced size */
+    height: auto; /* Maintain aspect ratio */
+    margin: 10px; /* Adjust margin to fit new size */
+    cursor: pointer;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.message {
+    display: none;
+    font-size: 25px;
+    color: #FF3366;
+    text-align: left;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-weight: bold;
+    position: absolute;
+    transition: opacity 0.5s;
+}
+
+#message1 {
+    top: 350px; /* Start further down */
+    left: 50px; /* Start further from the left */
+}
+
+#message2 {
+    top: 350px;
+    left: 400px; /* Increase space to the right of message 1 */
+}
+
+#message3 {
+    top: 450px; /* Increase vertical space below message 1 */
+    left: 50px;
+}
+
+#message4 {
+    top: 450px;
+    left: 400px; /* Increase space to the right of message 3 */
+}
+
+#message5 {
+    top: 550px; /* Increase vertical space below message 3 */
+    left: 50px;
+}
+
+#message6 {
+    top: 550px;
+    left: 400px; /* Increase space to the right of message 5 */
+}
+
+#message7 {
+    top: 650px; /* Increase vertical space below message 5 */
+    left: 50px;
+}
+
+#message8 {
+    top: 650px;
+    left: 400px; /* Increase space to the right of message 7 */
+}
+/* Styling for the button image */
+.click-me {
+    position: absolute; /* Allow precise positioning */
+    top: 410px; /* Adjust to move slightly upward */
+    right: 320px; /* Position towards the right side */
+}
+
+/* Style for the button image */
+.button-image {
+    width: 100px; /* Adjust width for a smaller size */
+    height: auto; /* Maintain aspect ratio */
+    border: none; /* Remove any border */
+    outline: none; /* Remove any outline */
+    box-shadow: none; /* Remove any shadow */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: transform 0.3s; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for the button image */
+.button-image:hover {
+    transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+.decorative-image {
+    width: 300px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    position: fixed; /* Fix the image position relative to the viewport */
+    bottom: 30px; /* Distance from the bottom of the viewport */
+    right: 250px; /* Distance from the right of the viewport */
+    border-radius: 15px; /* Match the border-radius to the shadow */
+    filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.3)); /* Shadow that follows the shape of the image */
+}
+
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow clicks through the canvas */
+    z-index: 9999; /* Make sure it's on top of everything */
+}
+/* Birthday Candle Container */
+.candle-container {
+    display: flex;
+    justify-content: center;
+    position: fixed; /* Fix the candle to the bottom of the page */
+    bottom: -30px; /* Distance from the bottom of the page */
+    left: 695px; /* Distance from the left to shift the candles more to the right */
+}
+
+/* Candle */
+.candle {
+    width: 280px; /* Increase the size of the candles */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 15px; /* Adjust spacing between candles */
+    position: relative;
+    /* Remove animation */
+}
+
+/* Candle Flame */
+.candle-flame {
+    position: absolute;
+    top: -12px; /* Position the flame above the candle */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; /* Remove the width of the flame */
+    height: 0; /* Remove the height of the flame */
+    background: none; /* Remove any background color or gradient */
+    border-radius: 0; /* Remove rounding to ensure it's not visible */
+    opacity: 0; /* Make the flame fully transparent */
+    /* No animation */
+}
+/* Media Queries for Extra Small Screens */
+@media (max-width: 600px) {
+    .heading {
+        font-size: 8vw; /* Adjust for smaller screens */
+    }
+
+    .message {
+        font-size: 5vw; /* Responsive font size for messages */
+    }
+
+    .lightbulb {
+        width: 15vw; /* Increase bulb size on small screens */
+    }
+
+    .click-me {
+        right: 5%; /* Adjust button position */
+    }
+
+    .decorative-image {
+        width: 60vw; /* Adjust decorative image size */
+    }
+}

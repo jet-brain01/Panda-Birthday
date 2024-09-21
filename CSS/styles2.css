@@ -1,0 +1,132 @@
+body {
+    background-image: url('../Items/main_bg2.png');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Prevents scrollbars from appearing */
+}
+
+.lock-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+
+.question {
+    color: white; /* White color for the question */
+    font-family: 'Dancing Script', cursive; /* Romantic font for the question */
+    font-size: 28px; /* Adjust font size as needed */
+    margin-bottom: 20px; /* Space between question and answer box */
+    position: absolute;
+    top: 33%; /* Position question higher on the page */
+}
+
+#lock, #unlock {
+    width: 100px; /* Adjust the size as needed */
+    height: auto;
+    position: absolute;
+    top: 15%; /* Adjust to move images up */
+    left: 49%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+}
+
+#unlock {
+    display: none; /* Hide unlock image initially */
+}
+
+/* 3D Look for Input Box */
+#answer {
+    margin: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(145deg, #fff, #e6e6e6);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+#answer:focus {
+    border-color: #FF3366;
+    outline: none;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Button Style */
+#submit {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #FF3366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 10px rgba(255, 51, 102, 0.5); /* Added glow effect */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+#submit:hover {
+    background-color: #e60073; /* Slightly darker shade for hover effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 51, 102, 0.7); /* Enhanced glow on hover */
+    transform: translateY(-2px); /* Lift button on hover */
+}
+
+/* Vibration effect for incorrect answers */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    10% { transform: translateX(-10px); }
+    20% { transform: translateX(10px); }
+    30% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    50% { transform: translateX(-10px); }
+    60% { transform: translateX(10px); }
+    70% { transform: translateX(-10px); }
+    80% { transform: translateX(10px); }
+    90% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.8s cubic-bezier(.36,.07,.19,.97) both;
+}
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh) scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(50vh) scale(1);
+    }
+    100% {
+        transform: translateY(100vh) scale(2);
+        opacity: 0;
+    }
+}
+/* Media Queries for Mobile */
+@media (max-width: 600px) {
+    .question {
+        font-size: 20px; /* Smaller font size for mobile */
+        top: 25%; /* Adjust position for smaller screens */
+    }
+
+    #lock, #unlock {
+        width: 80px; /* Smaller image size */
+    }
+
+    #answer {
+        width: 80%; /* Full width with some margin */
+        max-width: 300px; /* Maximum width */
+    }
+
+    #submit {
+        padding: 8px 16px; /* Adjust button padding */
+        font-size: 14px; /* Smaller font size for button */
+    }
+}

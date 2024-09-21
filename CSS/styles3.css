@@ -1,0 +1,391 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');  
+  
+  
+body {
+    font-family: "Poppins", sans-serif;
+    background-image: url('../Items/main_bg4.png'); /* Set the background image for the entire body */
+    background-size: cover; /* Ensure the image covers the entire body */
+    background-position: center; /* Center the background image */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.book {
+    width: 450px;
+    height: 550px;
+    position: relative;
+    perspective: 1500px; /* Create a 3D perspective */
+}
+/* Page 1 <p> styling */
+#page1 .front-page p {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.8rem; /* Adjust font size if needed */
+    color: #000000; /* White text color */
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.8), /* Pink glow */
+                0 0 20px rgba(255, 105, 180, 0.6), /* Larger pink glow */
+                0 0 30px rgba(255, 105, 180, 0.4); /* Even larger pink glow */
+    animation: glowing 1.5s infinite alternate; /* Glowing animation */
+}
+
+/* Glowing animation for Page 1 <p> */
+@keyframes glowing {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 105, 180, 0.8), /* Pink glow */
+                    0 0 20px rgba(255, 105, 180, 0.6), /* Larger pink glow */
+                    0 0 30px rgba(255, 105, 180, 0.4); /* Even larger pink glow */
+    }
+    100% {
+        text-shadow: 0 0 15px rgba(255, 105, 180, 1), /* Brighter pink glow */
+                    0 0 30px rgba(255, 105, 180, 0.8), /* Larger pink glow */
+                    0 0 45px rgba(255, 105, 180, 0.6); /* Even larger pink glow */
+    }
+}
+
+/* Page 2 and 3 <p> styling */
+#page2 .front-page p, 
+#page3 .front-page p {
+    font-family: 'Satisfy', cursive;
+    font-size: 1.8rem; /* Adjust font size as needed */
+    font-weight: bold;
+    color: #000000; /* Dark color for contrast */
+    text-shadow: 0 0 5px rgba(103, 27, 138, 0.34); /* Light shadow for readability */
+}
+
+/* Page 4 <p> styling (no change in font size) */
+#page4 .front-page p {
+    font-family: 'Satisfy', cursive;
+    font-size: 1.7rem; /* Original font size for Page 4 */
+    font-weight: bold;
+    color: #000000; /* Dark color for contrast */
+    text-shadow: 0 0 5px rgba(103, 27, 138, 0.34); /* Light shadow for readability */
+}
+/* Back page <p> styling (same as Page 1) */
+.back-page .front-page p {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.8rem; /* Same font size as Page 1 */
+    color: #000000; /* White text color */
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.8), /* Pink glow */
+                0 0 20px rgba(255, 105, 180, 0.6), /* Larger pink glow */
+                0 0 30px rgba(255, 105, 180, 0.4); /* Even larger pink glow */
+    animation: glowing 1.5s infinite alternate; /* Glowing animation */
+}
+
+input {
+    display: none;
+}
+
+.cover, .back-cover {
+    position: absolute;
+    top: 0;
+    left: -250px;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 15px 15px 0;
+    box-shadow: 0 0 5px rgba(41, 41, 41, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: center left;
+    transition: transform 1s, z-index 0.5s;
+}
+
+/* Cover page styling */
+.cover {
+    background-color: #c02d2f; /* Cover page color */
+    z-index: 5; /* Ensure cover is above other elements */
+    background-image: url('../Items/cover-image.png'); /* Path to the cover image */
+    background-size: contain; /* Resize the image to be fully visible */
+    background-repeat: no-repeat; /* Ensure the image does not repeat */
+    background-position: center; /* Center the image */
+}
+
+/* Ensure the cover image is hidden when flipping */
+.cover.flip {
+    background-image: none; /* Remove the background image when flipped */
+}
+
+.cover label {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.back-cover {
+    background-color: #c02d2f; /* Match the cover color */
+    z-index: 0; /* Ensure back cover is below other elements */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Ensure the text color is readable */
+    padding: 1rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.cover-message {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Optional: Adds a shadow to the text for better readability */
+    z-index: 0;
+}
+
+.page {
+    position: absolute;
+    width: 430px;
+    height: 530px;
+    border-radius: 0 15px 15px 0;
+    margin-top: 10px;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    transition: transform 1.5s, box-shadow 0.3s;
+    left: -250px;
+}
+
+.page img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px 0 0 15px;
+    object-fit: cover;
+}
+
+.front-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    padding: 1rem;
+    z-index: 5;
+    background: #ffff;
+    text-align: center; /* Center text horizontally */
+    display: flex;
+    flex-direction: column; /* Align children in column */
+    justify-content: center; /* Center content vertically */
+}
+
+.dynamic-text {
+    font-family: 'Pacifico', cursive; /* Use a dynamic font style */
+    font-size: 2rem; /* Adjust font size */
+    color: #333; /* Choose a color */
+    margin: 0.5rem 0; /* Margin for spacing */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow for a dynamic effect */
+}
+
+.mind-text {
+    font-family: 'Arial', sans-serif; /* Different font for this text */
+    font-size: 1.5rem; /* Adjust font size */
+    color: #555; /* Choose a different color */
+    margin: 0.5rem 0; /* Margin for spacing */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Add shadow for a subtle effect */
+}
+
+.back-page {
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+
+.next, .prev {
+    position: absolute;
+    bottom: 1em;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.next {
+    right: 1em;
+}
+
+.prev {
+    left: 1em;
+}
+
+#page1 {
+    z-index: 4;
+}
+
+#page2 {
+    z-index: 3;
+}
+
+#page3 {
+    z-index: 2;
+}
+
+#page4 {
+    z-index: 1;
+}
+
+#checkbox-cover:checked ~ .book {
+    transform: translateX(200px); /* Move the book to the right */
+}
+
+#checkbox-cover:checked ~ .book .cover {
+    transform: rotateY(-180deg); /* Flip the cover */
+    z-index: 0; /* Ensure cover is behind other pages */
+    background-image: none; /* Remove the cover image when flipping */
+}
+
+#checkbox-page1:checked ~ .book #page1 {
+    transform: rotateY(-180deg); /* Flip page 1 */
+    z-index: 1;
+}
+
+#checkbox-page2:checked ~ .book #page2 {
+    transform: rotateY(-180deg); /* Flip page 2 */
+    z-index: 2;
+}
+
+#checkbox-page3:checked ~ .book #page3 {
+    transform: rotateY(-180deg); /* Flip page 3 */
+    z-index: 3;
+}
+
+#checkbox-page4:checked ~ .book #page4 {
+    transform: rotateY(-180deg); /* Flip page 4 */
+    z-index: 4;
+}
+
+/* Color Box */
+.color-box {
+    width: 150px;  /* Adjust width for rectangular shape */
+    height: 60px;  /* Adjust height for rectangular shape */
+    border-radius: 12px;  /* Slightly rounded corners for a realistic look */
+    position: absolute;
+    bottom: 20px;  /* Position from the bottom */
+    left: 50%;  /* Center horizontally */
+    transform: translateX(-50%);  /* Center horizontally */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #ffffff, #e0e0e0);
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2), -6px -6px 12px rgba(255, 255, 255, 0.7);
+    border: 3px solid rgba(0, 0, 0, 0.2);  /* Subtle border with slight transparency */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    outline: none;  /* Remove default outline */
+}
+
+/* Color Box Text */
+.color-box-text {
+    font-size: 16px;  /* Larger text for better visibility */
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);  /* Text shadow for realism */
+}
+
+/* Hover and Press Effect */
+.color-box:hover {
+    background: linear-gradient(145deg, #f5f5f5, #dcdcdc);  /* Slightly different gradient for hover */
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.3), -8px -8px 16px rgba(255, 255, 255, 0.8);
+    border-color: rgba(0, 0, 0, 0.4);  /* Darker border color on hover */
+}
+
+.color-box:active {
+    background: linear-gradient(145deg, #e0e0e0, #ffffff);  /* Inverted gradient for pressed effect */
+    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.2), inset -4px -4px 8px rgba(255, 255, 255, 0.7);
+    border-color: rgba(0, 0, 0, 0.6);  /* Darker border color when pressed */
+    transform: translateY(4px);  /* Move the box down slightly to simulate a press */
+}
+/* Keyframes for the heartbeat animation */
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    20% {
+        transform: scale(1.1);
+    }
+    40% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(1.1);
+    }
+    80% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Apply the heartbeat animation to the h2 element on page 2 */
+#page2 h2 {
+    font-size: 4rem; /* Adjust the font size as needed */
+    animation: heartbeat 1.8s ease-in-out infinite; /* Adjust the duration and timing as needed */
+}
+/* Keyframes for the glowing pulse effect */
+@keyframes glow-pulse {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        opacity: 1;
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+        opacity: 0.8;
+    }
+    100% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        opacity: 1;
+    }
+}
+
+/* Apply the glowing pulse effect to the h2 element on page 3 */
+#page3 h2 {
+    font-size: 4rem; /* Adjust the font size to match page 2 */
+    animation: glow-pulse 3s ease-in-out infinite; /* Glowing pulse effect */
+    color: #fff; /* Ensure the text color is appropriate */
+}
+/* Keyframes for the kissing effect */
+@keyframes kiss-effect {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1); /* Slightly enlarge the text */
+        opacity: 0.8; /* Slightly fade the text */
+    }
+    100% {
+        transform: scale(1); /* Return to original size */
+        opacity: 1;
+    }
+}
+
+/* Apply the kissing effect to the h2 element on page 4 */
+#page4 h2 {
+    font-size: 4rem; /* Adjust font size to match the other pages */
+    color: #ff69b4; /* Color to give a romantic or warm feel */
+    animation: kiss-effect 2s ease-in-out infinite; /* Kissing effect */
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.5); /* Optional glow effect */
+}
+@media (max-width: 480px) {
+    .book {
+        width: 100%; /* Full width on mobile */
+    }
+    .dynamic-text, .mind-text {
+        font-size: 1.2rem; /* Further reduce font size */
+    }
+    #page2 h2, #page3 h2, #page4 h2 {
+        font-size: 2.5rem; /* Adjust h2 size for mobile */
+    }
+    .next, .prev {
+        font-size: 1rem; /* Smaller buttons */
+    }
+    .color-box {
+        width: 100px; /* Further adjust width */
+        height: 40px; /* Further adjust height */
+    }
+    .color-box-text {
+        font-size: 12px; /* Smaller text */
+    }
+}

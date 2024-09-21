@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Heading -->
+        <h1 class="heading">Happy Birthday Jaan!!</h1>
+        <img src="Items/gifts.png" alt="Descriptive Alt Text" class="decorative-image">
+        
+        <!-- Bulbs Container -->
+        <div class="lightbulbs">
+            <img src="Items/bulb_green.png" alt="Green Lightbulb" class="lightbulb" id="bulb1">
+            <img src="Items/bulb_white.png" alt="White Lightbulb" class="lightbulb" id="bulb2">
+            <img src="Items/bulb_red.png" alt="Red Lightbulb" class="lightbulb" id="bulb3">
+            <img src="Items/bulb_yellow.png" alt="Yellow Lightbulb" class="lightbulb" id="bulb4">
+            <img src="Items/bulb_blue.png" alt="Blue Lightbulb" class="lightbulb" id="bulb5">
+            <img src="Items/bulb_green1.png" alt="Green Lightbulb" class="lightbulb" id="bulb6">
+            <img src="Items/bulb_pink.png" alt="Pink Lightbulb" class="lightbulb" id="bulb7">
+            <img src="Items/bulb_orange.png" alt="Orange Lightbulb" class="lightbulb" id="bulb8">
+        </div>
+
+        <!-- Hidden Messages -->
+        <div id="message1" class="message">#You light up my life!!</div>
+        <div id="message2" class="message">#Every day with you is brighter!!</div>
+        <div id="message3" class="message">#Happy Birthday... Love!!</div>
+        <div id="message4" class="message">#You are my sunshine!!</div>
+        <div id="message5" class="message">#My heart beats for you!!</div>
+        <div id="message6" class="message">#You are my everything!!</div>
+        <div id="message7" class="message">#Forever and always!!</div>
+        <div id="message8" class="message">#You are my joy!!</div>
+
+        <!-- Image Button -->
+        <a href="index1.html" class="click-me">
+            <img src="Items/panda.jpg" alt="Go to Next Page" class="button-image">
+        </a>
+    </div>
+
+    <!-- Single Candle -->
+    <div class="candle-container">
+        <img src="Items/c1.png" alt="Birthday Candle" class="candle">
+        <div class="candle-flame"></div>
+    </div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Audio Element -->
+    <audio id="birthday-music" src="Musics/birthday_song.mp3" loop>
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        document.addEventListener('click', function() {
+            const audio = document.getElementById('birthday-music');
+            audio.play();
+        });
+    </script>
+    
+    <script src="JS/script.js"></script>
+</body>
+</html>

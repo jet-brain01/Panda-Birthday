@@ -9,7 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url('../Items/main_bg3.png'); /* Add your background image */
+    background-image: url('../Items/main_bg3.png');
     background-size: cover;
     background-position: center;
 }

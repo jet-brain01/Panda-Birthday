@@ -20,7 +20,7 @@ body {
 .question {
     color: white; /* White color for the question */
     font-family: 'Dancing Script', cursive; /* Romantic font for the question */
-    font-size: 28px; /* Adjust font size as needed */
+    font-size: 30px; /* Adjust font size as needed */
     margin-bottom: 20px; /* Space between question and answer box */
     position: absolute;
     top: 33%; /* Position question higher on the page */
@@ -31,7 +31,7 @@ body {
     height: auto;
     position: absolute;
     top: 15%; /* Adjust to move images up */
-    left: 51px%; /* Center horizontally */
+    left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
 }
 
@@ -43,8 +43,8 @@ body {
 #answer {
     margin: 20px;
     padding: 10px;
-    font-size: 16px;
-    border-radius: 8px;
+    font-size: 18px;
+    border-radius: 10px;
     border: 1px solid #ccc;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     background: linear-gradient(145deg, #fff, #e6e6e6);
@@ -61,12 +61,12 @@ body {
 /* Button Style */
 #submit {
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 17px;
     cursor: pointer;
     background-color: #FF3366;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 10px rgba(255, 51, 102, 0.5); /* Added glow effect */
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }

@@ -31,7 +31,7 @@ body {
     height: auto;
     position: absolute;
     top: 15%; /* Adjust to move images up */
-    left: 50px%; /* Center horizontally */
+    left: 51px%; /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
 }
 
@@ -107,26 +107,5 @@ body {
     100% {
         transform: translateY(100vh) scale(2);
         opacity: 0;
-    }
-}
-/* Media Queries for Mobile */
-@media (max-width: 600px) {
-    .question {
-        font-size: 20px; /* Smaller font size for mobile */
-        top: 25%; /* Adjust position for smaller screens */
-    }
-
-    #lock, #unlock {
-        width: 80px; /* Smaller image size */
-    }
-
-    #answer {
-        width: 80%; /* Full width with some margin */
-        max-width: 300px; /* Maximum width */
-    }
-
-    #submit {
-        padding: 8px 16px; /* Adjust button padding */
-        font-size: 14px; /* Smaller font size for button */
     }
 }

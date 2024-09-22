@@ -85,33 +85,3 @@ img:hover{
 .button-image:hover {
     transform: scale(1.1);
 }
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .box {
-        width: 150px; /* Reduce box size */
-        height: 225px; /* Reduce height */
-    }
-    
-    .button-image {
-        width: 80px; /* Adjust button size */
-    }
-    
-    .click-me {
-        top: 450px; /* Adjust button position */
-    }
-}
-
-@media (max-width: 480px) {
-    .box {
-        width: 100px; /* Further reduce box size for mobile */
-        height: 150px; /* Further reduce height */
-    }
-    
-    .button-image {
-        width: 60px; /* Further adjust button size */
-    }
-    
-    .click-me {
-        top: 350px; /* Further adjust button position */
-    }
-}

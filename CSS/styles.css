@@ -200,25 +200,3 @@ body {
     opacity: 0; /* Make the flame fully transparent */
     /* No animation */
 }
-/* Media Queries for Extra Small Screens */
-@media (max-width: 600px) {
-    .heading {
-        font-size: 8vw; /* Adjust for smaller screens */
-    }
-
-    .message {
-        font-size: 5vw; /* Responsive font size for messages */
-    }
-
-    .lightbulb {
-        width: 15vw; /* Increase bulb size on small screens */
-    }
-
-    .click-me {
-        right: 5%; /* Adjust button position */
-    }
-
-    .decorative-image {
-        width: 60vw; /* Adjust decorative image size */
-    }
-}
